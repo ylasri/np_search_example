@@ -124,4 +124,153 @@ You’re welcome to use these components, but be aware that they are rapidly evo
  
  > The application will provide access to TopNavBar like in Discovery app, the result of the query will be dispalyed in differents formats (In memory table, Simple Data grid and advanced Data Grid, all theses components are provided by [EUI framework](https://elastic.github.io/eui))
 
-<img src="./screens/screen.png" align="middle">
+<img src="./screens/screen1.png" align="middle">
+
+- Go to kibana/plugins and clone the respository
+```
+cd kibana/plugins
+git clone https://github.com/synapticiel/np_search_example.git
+```
+
+- Bootsrap the projet in order to install dependencies (includeed in `package.json` of the plugin)
+
+```
+yarn kbn bootstrap
+````
+
+- Create the index to be used for the demo
+
+```json
+PUT customer_churn_model
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "customer": {
+        "properties": {
+          "account_age": {
+            "type": "integer"
+          },
+          "churn": {
+            "type": "integer"
+          },
+          "customer_service_calls": {
+            "type": "integer"
+          },
+          "international_plan": {
+            "type": "keyword"
+          },
+          "number_vmail_messages": {
+            "type": "integer"
+          },
+          "phone_number": {
+            "type": "keyword"
+          },
+          "record_id": {
+            "type": "keyword"
+          },
+          "state": {
+            "type": "keyword"
+          },
+          "voice_mail_plan": {
+            "type": "keyword"
+          }
+        }
+      },
+      "phone_number": {
+        "type": "keyword"
+      },
+      "call_charges": {
+        "type": "double"
+      },
+      "call_duration": {
+        "type": "double"
+      },
+      "call_count": {
+        "type": "double"
+      }
+    }
+  }
+}
+```
+
+- Lood some samples into `customer_churn_model`
+```json
+POST _bulk
+{ "index" : { "_index" : "customer_churn_model", "_id" : "1" } }
+{"phone_number":"2253709563","call_charges":69.33000000000007,"call_duration":653.6000000000007,"customer":{"voice_mail_plan":"yes","number_vmail_messages":"26","churn":"0","account_age":"32","phone_number":"2253709563","state":"UT","international_plan":"no","customer_service_calls":"1"}}
+{ "index" : { "_index" : "customer_churn_model", "_id" : "2" } }
+{"phone_number":"2253978051","call_charges":57.98999999999999,"call_duration":559.1999999999999,"customer":{"voice_mail_plan":"no","number_vmail_messages":"0","churn":"0","account_age":"71","phone_number":"2253978051","state":"IL","international_plan":"no","customer_service_calls":"1"}}
+{ "index" : { "_index" : "customer_churn_model", "_id" : "3" } }
+{"phone_number":"2253759180","call_charges":61.67000000000001,"call_duration":615.2,"customer":{"voice_mail_plan":"no","number_vmail_messages":"0","churn":"0","account_age":"69","phone_number":"2253759180","state":"OR","international_plan":"no","customer_service_calls":"0"}}
+```
+
+- Check the result of bulk and make sure index `customer_churn_model` is populated
+
+```json
+{
+  "took" : 64,
+  "errors" : false,
+  "items" : [
+    {
+      "index" : {
+        "_index" : "customer_churn_model",
+        "_id" : "1",
+        "_version" : 1,
+        "result" : "created",
+        "_shards" : {
+          "total" : 1,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 9999,
+        "_primary_term" : 2,
+        "status" : 201
+      }
+    },
+    {
+      "index" : {
+        "_index" : "customer_churn_model",
+        "_id" : "2",
+        "_version" : 1,
+        "result" : "created",
+        "_shards" : {
+          "total" : 1,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 10000,
+        "_primary_term" : 2,
+        "status" : 201
+      }
+    },
+    {
+      "index" : {
+        "_index" : "customer_churn_model",
+        "_id" : "3",
+        "_version" : 1,
+        "result" : "created",
+        "_shards" : {
+          "total" : 1,
+          "successful" : 1,
+          "failed" : 0
+        },
+        "_seq_no" : 10001,
+        "_primary_term" : 2,
+        "status" : 201
+      }
+    }
+  ]
+}
+```
+- Create an index pattern with id `customer_churn_model` related to index `customer_churn_model` 
+
+
+<img src="./screens/index_pattern.png" align="middle">
+
+- This ID will be used by the ap to query the data using data plugin of Kibana, you change the index pattern using `Advanced Settings` of Kibana
+
+<img src="./screens/ui_setting.png" align="middle">

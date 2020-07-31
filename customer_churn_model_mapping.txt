@@ -1,0 +1,54 @@
+PUT customer_churn_model
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "properties": {
+      "customer": {
+        "properties": {
+          "account_age": {
+            "type": "integer"
+          },
+          "churn": {
+            "type": "integer"
+          },
+          "customer_service_calls": {
+            "type": "integer"
+          },
+          "international_plan": {
+            "type": "keyword"
+          },
+          "number_vmail_messages": {
+            "type": "integer"
+          },
+          "phone_number": {
+            "type": "keyword"
+          },
+          "record_id": {
+            "type": "keyword"
+          },
+          "state": {
+            "type": "keyword"
+          },
+          "voice_mail_plan": {
+            "type": "keyword"
+          }
+        }
+      },
+      "phone_number": {
+        "type": "keyword"
+      },
+      "call_charges": {
+        "type": "double"
+      },
+      "call_duration": {
+        "type": "double"
+      },
+      "call_count": {
+        "type": "double"
+      }
+    }
+  }
+}

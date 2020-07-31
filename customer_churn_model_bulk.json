@@ -1,0 +1,7 @@
+POST _bulk
+{ "index" : { "_index" : "customer_churn_model", "_id" : "1" } }
+{"phone_number":"2253709563","call_charges":69.33000000000007,"call_duration":653.6000000000007,"customer":{"voice_mail_plan":"yes","number_vmail_messages":"26","churn":"0","account_age":"32","phone_number":"2253709563","state":"UT","international_plan":"no","customer_service_calls":"1"}}
+{ "index" : { "_index" : "customer_churn_model", "_id" : "2" } }
+{"phone_number":"2253978051","call_charges":57.98999999999999,"call_duration":559.1999999999999,"customer":{"voice_mail_plan":"no","number_vmail_messages":"0","churn":"0","account_age":"71","phone_number":"2253978051","state":"IL","international_plan":"no","customer_service_calls":"1"}}
+{ "index" : { "_index" : "customer_churn_model", "_id" : "3" } }
+{"phone_number":"2253759180","call_charges":61.67000000000001,"call_duration":615.2,"customer":{"voice_mail_plan":"no","number_vmail_messages":"0","churn":"0","account_age":"69","phone_number":"2253759180","state":"OR","international_plan":"no","customer_service_calls":"0"}}
