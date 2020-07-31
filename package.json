@@ -1,0 +1,23 @@
+{
+  "name": "searchExamples",
+  "version": "0.0.1",
+  "description": "This plugin show how to work with the NP and TopNavMenu with search bar",
+  "kibana": {
+    "version": "kibana",
+    "templateVersion": "1.0.0"
+  },
+  "scripts": {
+    "preinstall": "node ../../preinstall_check",
+    "kbn": "node ../../scripts/kbn",
+    "es": "node ../../scripts/es",
+    "lint": "../../node_modules/.bin/eslint .",
+    "start": "../../node_modules/.bin/plugin-helpers start --oss --no-watch",
+    "test:server": "../../node_modules/.bin/plugin-helpers test:server",
+    "test:browser": "../../node_modules/.bin/plugin-helpers test:browser",
+    "build": "../../node_modules/.bin/plugin-helpers build"
+  },
+  "dependencies": {
+    "xlsx": "^0.16.4",
+    "file-saver": "^2.0.2"
+  }
+}

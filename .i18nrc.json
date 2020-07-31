@@ -1,0 +1,10 @@
+{
+    "prefix": "searchExamples",
+    "paths": {
+      "searchExamples": "."
+    },
+    "translations": [
+      "translations/ja-JP.json"
+    ]
+  }
+  
