@@ -20,7 +20,7 @@
 import { Comparators } from '@elastic/eui/lib/services/sort';
 import { IEsSearchResponse } from '../../../src/plugins/data/common';
 
-export const PLUGIN_ID = 'searchExample';
+export const PLUGIN_ID = 'search-examples';
 export const PLUGIN_NAME = 'Search Example';
 export const PLUGIN_DESC = 'This plugin show how to use TopNavMenu stateful component for search';
 export const APP_ICON = 'savedObjectsApp';

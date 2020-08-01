@@ -100,7 +100,7 @@ export class SearchExamplesPlugin
         },
       });
     }
-    this.logger.debug('search_examples: Setup');
+    this.logger.debug('search-examples: Setup');
 
     // This is here from the example, let's check later what's a strategy for search ...
     core.getStartServices().then(([_, depsStart]) => {
@@ -117,7 +117,7 @@ export class SearchExamplesPlugin
   }
 
   public start(core: CoreStart) {
-    this.logger.debug('search_examples: Started');
+    this.logger.debug('search-examples: Started');
     return {};
   }
 

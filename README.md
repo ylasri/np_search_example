@@ -197,7 +197,7 @@ PUT customer_churn_model
 }
 ```
 
-- Lood some samples into `customer_churn_model`
+- Load some samples into `customer_churn_model`
 ```json
 POST _bulk
 { "index" : { "_index" : "customer_churn_model", "_id" : "1" } }
@@ -208,7 +208,7 @@ POST _bulk
 {"phone_number":"2253759180","call_charges":61.67000000000001,"call_duration":615.2,"customer":{"voice_mail_plan":"no","number_vmail_messages":"0","churn":"0","account_age":"69","phone_number":"2253759180","state":"OR","international_plan":"no","customer_service_calls":"0"}}
 ```
 
-- Check the result of bulk and make sure index `customer_churn_model` is populated
+- Check the result of the bulk process and make sure index `customer_churn_model` is populated with samples
 
 ```json
 {
@@ -266,11 +266,11 @@ POST _bulk
   ]
 }
 ```
-- Create an index pattern with id `customer_churn_model` related to index `customer_churn_model` 
+- Create an index pattern with id `customer_churn_model` related to index `customer_churn_model` and make sure to select `@timestamp` as the default time field
 
 
 <img src="./screens/index_pattern.png" align="middle">
 
-- This ID will be used by the ap to query the data using data plugin of Kibana, you change the index pattern using `Advanced Settings` of Kibana
+- This id will be used by the app to query elasticsearch using the data plugin of Kibana NP, you can change the index pattern using `Advanced Settings` of Kibana
 
 <img src="./screens/ui_setting.png" align="middle">

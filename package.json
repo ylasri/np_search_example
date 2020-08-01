@@ -1,5 +1,5 @@
 {
-  "name": "searchExamples",
+  "name": "search-examples",
   "version": "0.0.1",
   "description": "This plugin show how to work with the NP and TopNavMenu with search bar",
   "kibana": {
